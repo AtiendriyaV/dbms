@@ -1,0 +1,16 @@
+SQL> DECLARE
+a number;
+b number;
+c number;
+PROCEDURE sum(x IN number , y IN number , z OUT number) IS
+BEGIN
+z := 0;
+z := x+y;
+END;
+BEGIN
+a := 25;
+b := 25;
+sum(a,b,c);
+dbms_output.put_line(' SUM of (25, 25) : ' || c);
+END;
+/
