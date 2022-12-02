@@ -1,0 +1,60 @@
+DECLARE 
+   a number; 
+   b number; 
+   c number;
+   d number;
+   g number;
+FUNCTION findMax(x IN number, y IN number) 
+
+
+RETURN number
+IS
+z number;
+BEGIN 
+   IF x > y THEN 
+      z:= x; 
+   ELSE 
+      Z:= y; 
+   END IF;  
+   RETURN z; 
+END; 
+
+BEGIN  
+<<outer_loop>>
+FOR a IN 1..5 LOOP
+    <<inner_loop>>
+    dbms_output.put_line('for value  : '||a);
+    FOR b IN 1..10 LOOP 
+    c:=a+b;
+    d:=b-a;
+     dbms_output.put_line('value of c is : '||c);
+     dbms_output.put_line('value of d is : '||d);
+     g := findMax(c,d);
+     dbms_output.put_line(' Maximum of c and d is : ' || g); 
+     END loop inner_loop; 
+   END loop outer_loop;
+   
+END;
+
+/*
+LOOP
+i number (1);
+j number (1);
+p integer;
+
+*/
+
+/*for loop*/
+/*
+BEGIN
+<<outer_loop>>
+FOR i IN 11..20 LOOP
+    <<inner_loop>>
+    dbms_output.put_line('Table of  : '||i);
+    FOR j IN 1..10 LOOP 
+    p:=i*j;
+     dbms_output.put_line('value of p is : '||p);
+     END loop inner_loop; 
+   END loop outer_loop; 
+*/
+
