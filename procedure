@@ -33,8 +33,11 @@ BEGIN
 <<outer_loop>>
 FOR a IN 1..5 LOOP
     <<inner_loop>>
-    dbms_output.put_line('for value  : '||a);
-    FOR b IN 1..10 LOOP 
+    
+    FOR b IN 1..10 LOOP
+   
+    dbms_output.put_line('value of a is : '||a);
+    dbms_output.put_line('value of b is : '||b);
     c:=a+b;
     d:=b-a;
      dbms_output.put_line('value of c is : '||c);
@@ -43,8 +46,7 @@ FOR a IN 1..5 LOOP
      dbms_output.put_line(' Maximum of c and d is : ' || g); 
      
      findMin(c,d,e);
-     dbms_output.put_line(' Minimum of c, d : ' || c);
-     dbms_output.put_line(' Minimum of c, d : ' || d);
+     dbms_output.put_line(' Minimum of c, d : ' || e);
      
      END loop inner_loop; 
    END loop outer_loop;
