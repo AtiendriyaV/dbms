@@ -1,0 +1,16 @@
+DECLARE
+i number (1);
+j number (1);
+p integer;  
+
+BEGIN
+<<outer_loop>>
+FOR i IN 11..20 LOOP
+    <<inner_loop>>
+    dbms_output.put_line('Table of  : '||i);
+    FOR j IN 1..10 LOOP 
+    p:=i*j;
+     dbms_output.put_line('value of p is : '||p);
+     END loop inner_loop; 
+   END loop outer_loop; 
+END;
