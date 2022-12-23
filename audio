@@ -1,0 +1,22 @@
+CREATE TABLE a_table (blob_col BLOB); 
+CREATE TYPE Voiced_typ AS OBJECT ( 
+   Originator      VARCHAR2(30), 
+   Script          CLOB, 
+   Actor           VARCHAR2(30),  
+   Take            NUMBER,
+   Recording       BFILE 
+);
+
+
+CREATE TABLE Multimedia_tab ( 
+   Clip_ID         NUMBER NOT NULL, 
+   Story           CLOB default EMPTY_CLOB(), 
+   FLSub           NCLOB default EMPTY_CLOB(), 
+   Photo           BFILE default NULL, 
+   Frame           BLOB default EMPTY_BLOB(), 
+   Sound           BLOB default EMPTY_BLOB(), 
+   Voiced_ref      REF Voiced_typ,
+   InSeg_ntab      InSeg_tab, 
+   Music           BFILE default NULL, 
+   Map_obj         Map_typ 
+ ) NESTED TABLE    InSeg_ntab STORE AS InSeg_nestedtab; 
